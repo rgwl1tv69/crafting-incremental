@@ -21,7 +21,7 @@ var inventory = [
   ["assembler",1],
   ["furnace",1],
 ];
-var function listHasItem(id,list) {
+function listHasItem(id,list) {
   for (let i = 0; i < table.length; i++) {
     if (list[i][0] == id) {
       return i;
@@ -29,7 +29,7 @@ var function listHasItem(id,list) {
   };
   return false;
 };
-var function addItemToInventory(id,amount) {
+function addItemToInventory(id,amount) {
   let index = listHasItem();
   if (!index) {
     inventory.push([id,amount]);
@@ -37,7 +37,7 @@ var function addItemToInventory(id,amount) {
     inventory[index][1] += amount
   }
 };
-var function tick() {
+function tick() {
   let booleans = [
     listHasItem("drill",machines)
   ]
