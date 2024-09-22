@@ -45,5 +45,6 @@ var function tick() {
     addItemToInventory("iron_ore",machines[booleans[0]][1]);
     addItemToInventory("copper_ore",machines[booleans[0]][1]);
   };
+  document.getElementById("machines").innerHTML = machines
 };
 setInterval(tick,1000)
