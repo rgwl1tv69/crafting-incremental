@@ -41,7 +41,7 @@ function tick() {
   let booleans = [
     listHasItem("drill",machines)
   ]
-  if (booleans[0]) {
+  if (booleans[0] !== false) {
     addItemToInventory("iron_ore",machines[booleans[0]][1]);
     addItemToInventory("copper_ore",machines[booleans[0]][1]);
   };
