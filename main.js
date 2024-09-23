@@ -22,7 +22,7 @@ var inventory = [
   ["furnace",1],
 ];
 function listHasItem(id,list) {
-  for (let i = 0; i < table.length; i++) {
+  for (let i = 0; i < list.length; i++) {
     if (list[i][0] == id) {
       return i;
     }
