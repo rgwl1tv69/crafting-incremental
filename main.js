@@ -39,7 +39,7 @@ function addItemToInventory(id,amount) {
 }
 function getItemFromId(id) {
   for (let i = 0; i < items.length; i++) {
-    if (items[i][0] == id) {
+    if (items[i][4] == id) {
       return i;
     }
   }
