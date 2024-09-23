@@ -30,7 +30,7 @@ function listHasItem(id,list) {
   return false;
 };
 function addItemToInventory(id,amount) {
-  let index = listHasItem();
+  let index = listHasItem(id,inventory);
   if (!index) {
     inventory.push([id,amount]);
   } else {
