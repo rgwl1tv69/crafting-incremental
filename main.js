@@ -70,5 +70,6 @@ function tick() {
   }
   document.getElementById("machines").innerHTML = machines;
   document.getElementById("inventory").innerHTML = inventory;
+  document.getElementById("money").innerHTML = "$" + money;
 }
 setInterval(tick,1000)
