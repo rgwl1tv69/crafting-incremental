@@ -26,9 +26,9 @@ function listHasItem(id,list) {
     if (list[i][0] == id) {
       return i;
     }
-  };
+  }
   return false;
-};
+}
 function addItemToInventory(id,amount) {
   let index = listHasItem(id,inventory);
   if (!index) {
@@ -36,7 +36,30 @@ function addItemToInventory(id,amount) {
   } else {
     inventory[index][1] += amount
   }
-};
+}
+function getItemFromId(id) {
+  return listHasItem(id,items)
+}
+function sell(index,amount) {
+  let item = items[getItemFromId(index)]
+  inventory[index][1] -= amount;
+  money += item[2]*(amount+inventory[index][1]);
+  if (inventory[index][1] <= 0) {
+    inventory.splice(index,index);
+    return 0;
+  }
+  return 1;
+}
+function sellAll() {
+  for (let i = 0; i < inventory.length; i++) {
+    if (items[getItemFromId(inventory[i][0])][3] == "sell") {
+      let sellResult = sell(i,inventory[i][1])
+      if (sellResult == 0) {
+        break
+      }
+    }
+  }
+}
 function tick() {
   let booleans = [
     listHasItem("drill",machines)
@@ -44,8 +67,8 @@ function tick() {
   if (booleans[0] !== false) {
     addItemToInventory("iron_ore",machines[booleans[0]][1]);
     addItemToInventory("copper_ore",machines[booleans[0]][1]);
-  };
+  }
   document.getElementById("machines").innerHTML = machines;
   document.getElementById("inventory").innerHTML = inventory;
-};
+}
 setInterval(tick,1000)
