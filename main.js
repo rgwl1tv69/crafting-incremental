@@ -38,7 +38,12 @@ function addItemToInventory(id,amount) {
   }
 }
 function getItemFromId(id) {
-  return listHasItem(id,items)
+  for (let i = 0; i < items.length; i++) {
+    if (items[i][0] == id) {
+      return i;
+    }
+  }
+  return false;
 }
 function sell(index,amount) {
   let item = items[getItemFromId(index)]
