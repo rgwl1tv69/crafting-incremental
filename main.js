@@ -1,5 +1,5 @@
 var tps = 10
-var tickDelay = 1000/tps
+var tickDelay = 1/tps
 var money = 1000;
 var pollution = 0;
 // format: [id,amount]
@@ -16,7 +16,7 @@ var items = [
   ["Furnace","used to smelt ores",100,"buy","furnace"],
   ["Assembler","crafts things",10000,"buy","assembler"]
 ];
-var drillSpeed = 0.1; // per second
+var drillSpeed = 0.05; // per second
 var production = [];
 // format: [id,amount]
 var inventory = [
@@ -80,4 +80,4 @@ function tick() {
   document.getElementById("inventory").innerHTML = inventory;
   document.getElementById("money").innerHTML = "$" + money;
 }
-setInterval(tick,tickDelay)
+setInterval(tick,tickDelay*1000)
