@@ -50,7 +50,7 @@ function sell(index,amount) {
   inventory[index][1] -= amount;
   money += item[2]*(amount+inventory[index][1]);
   if (inventory[index][1] <= 0) {
-    inventory.splice(index,index);
+    inventory.splice(index,1);
     return 0;
   }
   return 1;
