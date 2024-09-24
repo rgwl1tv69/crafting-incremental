@@ -46,7 +46,7 @@ function getItemFromId(id) {
   return false;
 }
 function sell(index,amount) {
-  let item = items[getItemFromId(index)]
+  let item = items[getItemFromId(inventory[index][0])]
   inventory[index][1] -= amount;
   money += item[2]*(amount+inventory[index][1]);
   if (inventory[index][1] <= 0) {
