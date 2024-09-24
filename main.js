@@ -1,3 +1,5 @@
+var tps = 10
+var tickDelay = 1000/tps
 var money = 1000;
 var pollution = 0;
 // format: [id,amount]
@@ -70,7 +72,7 @@ function tick() {
   let booleans = [
     listHasItem("drill",machines)
   ]
-  if ((booleans[0] !== false) && (Math.random() < drillSpeed)) {
+  if ((booleans[0] !== false) && (Math.random() < tickDelay*drillSpeed)) {
     addItemToInventory("iron_ore",machines[booleans[0]][1]);
     addItemToInventory("copper_ore",machines[booleans[0]][1]);
   }
@@ -78,4 +80,4 @@ function tick() {
   document.getElementById("inventory").innerHTML = inventory;
   document.getElementById("money").innerHTML = "$" + money;
 }
-setInterval(tick,50)
+setInterval(tick,tickDelay)
