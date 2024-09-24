@@ -14,6 +14,7 @@ var items = [
   ["Furnace","used to smelt ores",100,"buy","furnace"],
   ["Assembler","crafts things",10000,"buy","assembler"]
 ];
+var drillSpeed = 0.1; // per second
 var production = [];
 // format: [id,amount]
 var inventory = [
@@ -69,7 +70,7 @@ function tick() {
   let booleans = [
     listHasItem("drill",machines)
   ]
-  if (booleans[0] !== false) {
+  if ((booleans[0] !== false) && (Math.random() < drillSpeed)) {
     addItemToInventory("iron_ore",machines[booleans[0]][1]);
     addItemToInventory("copper_ore",machines[booleans[0]][1]);
   }
@@ -77,4 +78,4 @@ function tick() {
   document.getElementById("inventory").innerHTML = inventory;
   document.getElementById("money").innerHTML = "$" + money;
 }
-setInterval(tick,1000)
+setInterval(tick,50)
